@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+.header { display:flex; justify-content: space-between; padding:10px 20px; background:#333; color:white; }
+.header a { color:white; text-decoration:none; margin-left:15px; }
+.logo { font-weight:bold; font-size:24px; }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:20px; padding:20px; }
+.product-card { border:1px solid #ddd; padding:10px; text-align:center; }
+.product-card img { width:150px; height:150px; object-fit:cover; }
+button { padding:5px 10px; margin-top:5px; cursor:pointer; }
+.cart-item { display:flex; gap:15px; margin:10px 0; }
+.details-btn { display:block; margin-top:5px; text-decoration:none; color:blue; }
