@@ -5,15 +5,16 @@ import { FaShoppingCart } from "react-icons/fa";
 
 export default function Header() {
   const { cart } = useContext(CartContext);
+
   return (
-    <header className="header">
-      <Link to="/" className="logo">E-Shop</Link>
-      <nav>
-        <Link to="/cart">
-          <FaShoppingCart style={{ marginRight: "5px" }} />
+    <nav className="navbar navbar-expand-lg navbar-dark bg-danger px-3">
+      <Link className="navbar-brand fw-bold" to="/">E-Shop</Link>
+      <div className="ms-auto">
+        <Link to="/cart" className="btn btn-warning">
+          <FaShoppingCart className="me-2" />
           Cart ({cart.length})
         </Link>
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
 }
