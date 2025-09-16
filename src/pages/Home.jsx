@@ -1,38 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
-import SearchBar from "../components/SearchBar";
+import "../styles.css";
 
-const Home = () => {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
-
-  const filtered = products.filter(
-    (p) =>
-      p.name.toLowerCase().includes(search.toLowerCase()) &&
-      (category ? p.category === category : true)
-  );
-
+function Home() {
   return (
-    <div className="home">
-      <h2>Products</h2>
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-        category={category}
-        setCategory={setCategory}
-      />
-      <div className="grid">
-        {filtered.length > 0 ? (
-          filtered.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        ) : (
-          <p>No products found.</p>
-        )}
+    <div>
+      <div className="hero">
+        <h1>Upgrade Your Lifestyle 🚀</h1>
+        <p>Shop the latest gadgets at unbeatable prices</p>
+      </div>
+
+      <div className="products">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default Home;
