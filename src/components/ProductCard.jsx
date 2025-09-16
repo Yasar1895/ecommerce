@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { CartContext } from "../context/CartContext";
+import "../styles.css";
 
-const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
+function ProductCard({ product }) {
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="product-card">
-      <img src={product.image} alt={product.name} className="product-img" />
-      <h3>{product.name}</h3>
-      <p className="price">${product.price}</p>
-      <div className="card-actions">
-        <button onClick={() => addToCart(product)} className="btn-primary">
-          🛒 Add to Cart
-        </button>
-        <Link to={`/product/${product.id}`} className="btn-secondary">
-          🔍 Details
-        </Link>
-        <button className="btn-heart">❤️</button>
-      </div>
+      <img src={product.image} alt={product.name} />
+      <div className="product-title">{product.name}</div>
+      <div className="product-price">${product.price}</div>
+      <button className="add" onClick={() => addToCart(product)}>Add to Cart</button>
+      <Link to={`/product/${product.id}`}>
+        <button className="details">Details</button>
+      </Link>
     </div>
   );
-};
+}
 
 export default ProductCard;
