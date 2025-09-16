@@ -13,7 +13,11 @@ function App() {
 
   return (
     <div>
-      <div className="navbar">E-Shop 🛒</div>
+      <header className="navbar">✨ E-Shop — Your Tech Store ✨</header>
+      <div className="hero">
+        <h1>Upgrade Your Lifestyle</h1>
+        <p>Shop the latest gadgets at unbeatable prices 🚀</p>
+      </div>
       <div className="products">
         {products.map((p) => (
           <div className="product-card" key={p.id}>
