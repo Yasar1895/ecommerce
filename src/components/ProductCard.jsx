@@ -1,22 +1,26 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaCartPlus, FaInfoCircle } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
-export default function ProductCard({ product }) {
-  const { addToCart } = useContext(CartContext);
+const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
 
   return (
     <div className="product-card">
-      <img src={product.image} alt={product.name} />
+      <img src={product.image} alt={product.name} className="product-img" />
       <h3>{product.name}</h3>
-      <p>${product.price}</p>
-      <button onClick={() => addToCart(product)}>
-        <FaCartPlus /> Add to Cart
-      </button>
-      <Link to={`/product/${product.id}`} className="details-btn">
-        <FaInfoCircle /> Details
-      </Link>
+      <p className="price">${product.price}</p>
+      <div className="card-actions">
+        <button onClick={() => addToCart(product)} className="btn-primary">
+          🛒 Add to Cart
+        </button>
+        <Link to={`/product/${product.id}`} className="btn-secondary">
+          🔍 Details
+        </Link>
+        <button className="btn-heart">❤️</button>
+      </div>
     </div>
   );
-}
+};
+
+export default ProductCard;
