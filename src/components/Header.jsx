@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { CartContext } from "../context/CartContext";
+import "../styles.css";
 
-const Header = () => {
-  const { cart } = useCart();
+function Header() {
+  const { cart } = useContext(CartContext);
 
   return (
-    <header>
-      <Link to="/" className="logo">E-Shop</Link>
-      <nav>
-        <Link to="/">Home</Link>
+    <header className="navbar">
+      <Link to="/">✨ E-Shop</Link>
+      <div>
         <Link to="/cart">🛒 Cart ({cart.length})</Link>
-      </nav>
+      </div>
     </header>
   );
-};
+}
 
 export default Header;
