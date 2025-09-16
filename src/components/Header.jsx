@@ -1,20 +1,19 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { FaShoppingCart } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
-export default function Header() {
-  const { cart } = useContext(CartContext);
+const Header = () => {
+  const { cart } = useCart();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger px-3">
-      <Link className="navbar-brand fw-bold" to="/">E-Shop</Link>
-      <div className="ms-auto">
-        <Link to="/cart" className="btn btn-warning">
-          <FaShoppingCart className="me-2" />
-          Cart ({cart.length})
-        </Link>
-      </div>
-    </nav>
+    <header>
+      <Link to="/" className="logo">E-Shop</Link>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/cart">🛒 Cart ({cart.length})</Link>
+      </nav>
+    </header>
   );
-}
+};
+
+export default Header;
